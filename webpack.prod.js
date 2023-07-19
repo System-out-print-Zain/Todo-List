@@ -1,5 +1,5 @@
 const path = require('path');
-import HtmlWebpackPlugin from "html-webpack-plugin"
+import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 module.exports = {
