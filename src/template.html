@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+    <div class="container">
+        <div class="header">
+            <h1 class="title">UniToDo</h1>
+        </div>
+        <div class="sidebar">
+            <h3 class="sidebar-title">Courses</h3>
+            <div class="course-container">
+                <ul class="courses">
+                    <li class="course ex-course-1 selected-course">
+                        <div class="course-name">Example Course 1</div>
+                        <p class="del-course">X</p>
+                    </li>
+                    <li class="course ex-course-2">
+                        <div class="course-name">Example Course 2</div>
+                        <p class="del-course">X</p>
+                    </li>
+                </ul>
+                <button class="add-course active">+ Add Course</button>
+                <form class="new-course">
+                    <input type="text" placeholder="Course Name" id="course-name">
+                    <input type="submit" value="Add" id="add-course">
+                </form>
+            </div>
+        </div>
+        <div class="main">
+            <h2 class="course-title">Example Course 1</h2>
+            <div class="todo-container">
+                <ul class="todo-items">
+                    <li class="item" id="1">
+                        <p class="del-item">X</p>
+                        <div class="item-info">
+                            <h4 class="item-name">Quiz 1</h4>
+                            <p class="description">Limit rules, epsilon-delta proofs.</p>
+                            <input type="date" placeholder="dd/mm/yyyy" id="due-date">
+                        </div>
+                    </li>
+                </ul>
+                <form class="new-item">
+                    <div class="top-inputs">
+                        <input type="text" placeholder="Title" id="title" required>
+                        <input type="date" id="date">
+                    </div>
+                    <input type="text" placeholder="Description" id="description">
+                    <div class="bottom-inputs">
+                        <input type="reset" value="Clear" id="clear">
+                        <input type="submit" value="Add" id="add">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="footer">
+            <h4 class="github">System-out-print-Zain</h4>
+        </div>
+    </div>
+</body>
+</html>
