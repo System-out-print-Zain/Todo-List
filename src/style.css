@@ -1,0 +1,279 @@
+body {
+    margin: 0px;
+    height: 100%;
+}
+
+:root {
+    --main-font: Georgia, 'Times New Roman', Times, serif;
+    --main-color-1: rgb(57, 57, 244);
+    --main-color-2: white;
+    --font-color-1: white;
+    --font-color-2: black;
+    font-family: var(--main-font);
+    height: 100%;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: var(--main-font);
+}
+
+input {
+    font-family: var(--main-font);
+    background-color: transparent;
+    border: none;
+    border-bottom: solid black 1px;
+    font-weight: bold;
+}
+
+::placeholder {
+    color: black;
+}
+
+input:focus{
+    outline: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+ul {
+    padding: 0px;
+}
+
+li {
+    list-style-type: none;
+}
+
+/*Overall Layout*/
+
+.container {
+    display: grid;
+    height: 100%;
+    grid-template-rows: 80px 1fr 40px;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: 
+    "header header"
+    "sidebar main"
+    "footer footer";
+}
+
+.header {
+    grid-area: header;
+}
+
+.main {
+    grid-area: main;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+/*Header Styling*/
+
+.header {
+    background-color: var(--main-color-1);
+    color: var(--font-color-1);
+    border: black 3px solid;
+}
+
+.title {
+    margin-left: 50px;
+}
+
+/*Sidebar styling*/
+
+.sidebar{
+    background-color: var(--main-color-1);
+    border: black 3px solid;
+    border-top: none;
+    border-bottom: none;
+    color: var(--font-color-1);
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.course {
+    font-weight: lighter;
+    display: flex;
+    justify-content: space-between;
+}
+
+.selected-course > .course-name{
+    text-decoration: underline;
+    font-weight: bold;
+    align-items: center;
+}
+
+.add-course {
+    color: yellow;
+    display: none;
+}
+
+.courses {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.course-name{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.course-name, .del-course:hover{
+    cursor: pointer;
+}
+
+.del-course{
+    font-size: 12px;
+}
+
+#course-name{
+    color: white;
+    font-weight: lighter;
+    font-size: 16px;
+}
+
+#add-course{
+    color: white;
+    border: none;
+}
+
+#add-course:hover {
+    cursor: pointer;
+}
+
+.new-course {
+    display: flex;
+    justify-content: space-between;
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+/*Main styling*/
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main *{
+    margin: 0px;
+}
+
+.course-title {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: bold;
+}
+
+.todo-container {
+    width: 80%;
+}
+
+.del-item{
+    opacity: 0.3;
+}
+
+.del-item:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.item-info {
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-radius: 10px;
+    padding: 5px 15px;
+    width: 100%;
+}
+
+.item-name {
+    white-space: nowrap;
+}
+
+.todo-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.description {
+    font-weight: lighter;
+    word-break: break-all;
+}
+
+#due-date {
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+.new-item {
+    margin-top: 25px;
+    background-color: rgb(135, 204, 227);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 20px;
+    position: sticky;
+    bottom: 15px;
+}
+
+#title {
+    width: 60%;
+}
+
+.top-inputs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#add, #clear {
+    border: none;
+    cursor: pointer;
+}
+
+/*Footer styling*/
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color-1);
+    border: black 3px solid;
+}
+
+.github {
+    color: var(--font-color-1);
+    font-weight: lighter;
+}
