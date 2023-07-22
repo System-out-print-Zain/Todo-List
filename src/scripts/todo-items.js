@@ -4,35 +4,12 @@
 
 function todoItem(title, description, dueDate)
 {
-    const setTitle = function(newTitle)
-    {
-        title = newTitle;
-    }
-
-    const getTitle = function()
-    {
-        return title;
-    }
-
-    const setDescription = function(newDescription)
-    {
-        description = newDescription;
-    }
-
-    const getDescription = function()
-    {
-        return description;
-    }
-
-    const setDate = function(newDate)
-    {
-        dueDate = newDate;
-    }
-
-    const getDate = function()
-    {
-        return date;
-    }
+    const setTitle = (newTitle) => title = newTitle;
+    const getTitle = () => title;
+    const setDescription = (newDescription) => description = newDescription;
+    const getDescription = () => description;
+    const setDate = (newDate) => dueDate = newDate;
+    const getDate = () => date;
 
     return {
         setTitle,
