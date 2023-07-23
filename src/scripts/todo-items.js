@@ -21,7 +21,8 @@ function todoItem(title, description, dueDate)
     }
 }
 
-export function course(name)
+/* Factory Function for courses */
+export default function course(name)
 {
     const todos = [];
 
