@@ -35,8 +35,15 @@ export function course(name)
         todos.splice(id, 1);
     }
 
+    const changeDateTodo = function(id, date)
+    {
+        todos[id].setDate(date);
+    }
+
     return {
         addTodo,
-        delTodo
+        delTodo,
+        changeDateTodo,
+        name
     }
 }
