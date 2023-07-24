@@ -8,16 +8,16 @@ function todoItem(title, description, dueDate)
     const getTitle = () => title;
     const setDescription = (newDescription) => description = newDescription;
     const getDescription = () => description;
-    const setDate = (newDate) => dueDate = newDate;
-    const getDate = () => date;
+    const setDueDate = (newDate) => dueDate = newDate;
+    const getDueDate = () => dueDate;
 
     return {
         setTitle,
         setDescription,
-        setDate,
+        setDueDate,
+        getDueDate,
         getTitle,
         getDescription,
-        getDate
     }
 }
 
@@ -38,7 +38,12 @@ export default function course(name, identifier)
 
     const changeDateTodo = function(id, date)
     {
-        todos[id].setDate(date);
+        todos[id].setDueDate(date);
+    }
+
+    const getDateTodo = function(id)
+    {
+        return todos[id].getDueDate();
     }
 
     const getNumberOfTodos = function()
@@ -62,6 +67,7 @@ export default function course(name, identifier)
         getTodo,
         getName,
         setName,
+        getDateTodo,
         identifier
     }
 }

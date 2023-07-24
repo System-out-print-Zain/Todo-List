@@ -5,7 +5,7 @@ const courseManager = (function ()
 {
     /*Example Course*/
     const exCourse = course('Example Course 1', 'example-course-1');
-    exCourse.addTodo('Quiz 1', 'Limit rules, epsilon-delta proofs.', null);
+    exCourse.addTodo('Quiz 1', 'Limit rules, epsilon-delta proofs.', '2023-11-23');
 
     const courses = [exCourse];
     let currCourse = 'example-course-1';
@@ -55,13 +55,21 @@ const courseManager = (function ()
         return null;
     }
 
+    const getNumCourses = function ()
+    {
+        return courses.length;
+    }
+
     return {
         addCourse,
         removeCourse,
         courseExists,
         getCurrCourse,
         setCurrCourse,
-        currCourse
+        getNumCourses,
+        get currCourse(){
+            return currCourse;
+        }
     }
 })();
 

@@ -38,9 +38,16 @@ const displayController = function ()
 
     const removeCourse = function (identifier)
     {
+        if (courseManager.getNumCourses() === 1) return;
+
         const courseToBeRemoved = document.querySelector('.' + identifier);
         courseToBeRemoved.remove();
         courseManager.removeCourse(identifier);
+
+        // switch current course to first course if needed
+        if (courseManager.currCourse !== identifier) return;
+        const courses = document.querySelectorAll('.course');
+        loadCourse(courses[0].classList[1]);
     }
 
     const loadCourse = function (identifier)
@@ -53,7 +60,10 @@ const displayController = function ()
         const prevSelectedCourse = document.querySelector('.selected-course');
         const currSelectedCourse = document.querySelector('.' + identifier);
 
-        prevSelectedCourse.classList.remove('selected-course')
+        if (prevSelectedCourse !== null)
+        {
+            prevSelectedCourse.classList.remove('selected-course');
+        }
         currSelectedCourse.classList.add('selected-course');
 
         const cont = document.querySelector('.todo-items');
@@ -68,13 +78,15 @@ const displayController = function ()
         {
 
             todo = courseManager.getCurrCourse().getTodo(i);
+
+            console.log(todo.getDueDate());
             cont.innerHTML += 
             `<li class="item">
                 <p class="del-item">X</p>
                 <div class="item-info">
                     <h4 class="item-name">`+todo.getTitle()+`</h4>
                     <p class="description">`+todo.getDescription()+`</p>
-                    <input type="date" placeholder="dd/mm/yyyy" id="due-date" value="`+todo.getDate()+`">
+                    <input type="date" placeholder="dd/mm/yyyy" id="due-date" value="`+todo.getDueDate()+`">
                 </div>
             </li>`;
         }
@@ -105,6 +117,7 @@ const displayController = function ()
         const itemToBeRemoved = todoItems.children[id];
         itemToBeRemoved.remove();
         courseManager.getCurrCourse().delTodo(id);
+        loadCourse(courseManager.currCourse);
     }
 
     /* Event Listeners */
