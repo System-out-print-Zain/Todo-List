@@ -4,32 +4,32 @@ import course from './todo-items.js';
 const courseManager = (function ()
 {
     /*Example Course*/
-    const exCourse = course('Example Course 1');
+    const exCourse = course('Example Course 1', 'example-course-1');
     exCourse.addTodo('Quiz 1', 'Limit rules, epsilon-delta proofs.', null);
 
     const courses = [exCourse];
-    let currCourse = 'Example Course 1';
+    let currCourse = 'example-course-1';
 
-    const courseExists = function (name)
+    const courseExists = function (identifier)
     {
         for (let i = 0; i < courses.length; i++)
         {
-            if (courses[i].name === name) return true;
+            if (courses[i].identifier === identifier) return true;
         }
         return false;
     }
 
-    const addCourse = function (name)
+    const addCourse = function (name, identifier)
     {
-        if (!courseExists(name)) courses.push(course(name));
+        if (!courseExists(identifier)) courses.push(course(name, identifier));
         else alert('Courses must have unique names');
     }
 
-    const removeCourse = function (name)
+    const removeCourse = function (identifier)
     {
         for (let i = 0; i < courses.length; i++)
         {
-            if (courses[i].name === name)
+            if (courses[i].identifier === identifier)
             {
                 courses.splice(i, 1);
                 return;
@@ -37,9 +37,30 @@ const courseManager = (function ()
         }
     }
 
+    const setCurrCourse = function (identifier)
+    {
+        if (courseExists(identifier)) currCourse = identifier;
+        else alert('Course with identifier ' + identifier + ' does not exist');
+    }
+
+    const getCurrCourse = function ()
+    {
+        for (let i = 0; i < courses.length; i++)
+        {
+            if (courses[i].identifier === currCourse)
+            {
+                return courses[i];
+            }
+        }
+        return null;
+    }
+
     return {
         addCourse,
         removeCourse,
+        courseExists,
+        getCurrCourse,
+        setCurrCourse,
         currCourse
     }
 })();

@@ -22,7 +22,7 @@ function todoItem(title, description, dueDate)
 }
 
 /* Factory Function for courses */
-export default function course(name)
+export default function course(name, identifier)
 {
     const todos = [];
 
@@ -41,10 +41,27 @@ export default function course(name)
         todos[id].setDate(date);
     }
 
+    const getNumberOfTodos = function()
+    {
+        return todos.length;
+    }
+
+    const getTodo = function (index)
+    {
+        return todos[index];
+    }
+
+    const getName = () => {return name};
+    const setName = (newName) => name = newName;
+
     return {
         addTodo,
         delTodo,
         changeDateTodo,
-        name
+        getNumberOfTodos,
+        getTodo,
+        getName,
+        setName,
+        identifier
     }
 }
