@@ -26,11 +26,12 @@ input {
     background-color: transparent;
     border: none;
     border-bottom: solid black 1px;
-    font-weight: bold;
+    font-weight: lighter;
 }
 
 ::placeholder {
     color: black;
+    opacity: 0.4;
 }
 
 input:focus{
@@ -136,6 +137,10 @@ li {
 
 .del-course{
     font-size: 12px;
+}
+
+#course-name::placeholder{
+    color: white;
 }
 
 #course-name{
