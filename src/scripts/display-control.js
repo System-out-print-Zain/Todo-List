@@ -1,5 +1,4 @@
 import courseManager from './course-management.js';
-import course from './index.js';
 'strict mode';
 
 const displayController = function () 
